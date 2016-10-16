@@ -1,0 +1,61 @@
+# STM32 Boards
+
+menu.device_variant=Variant
+menu.bootloader_version=Bootloader version
+menu.upload_method=Upload method
+menu.cpu_speed=CPU Speed(MHz)
+
+##############################################################
+maplemininewusb.name=Maple Mini (new USB)
+maplemininewusb.vid.0=0x1EAF
+maplemininewusb.pid.0=0x0004
+maplemininewusb.build.variant=maple_mini_new_usb
+maplemininewusb.build.vect=VECT_TAB_ADDR=0x8000000
+maplemininewusb.build.core=Arduino_STM32:maple
+maplemininewusb.build.board=MAPLE_MINI_NEW_USB
+maplemininewusb.upload.use_1200bps_touch=false
+maplemininewusb.upload.file_type=bin
+maplemininewusb.upload.auto_reset=true
+
+## STM32F103CB -------------------------
+maplemininewusb.menu.device_variant.STM32F103CB=STM32F103CB (20k RAM. 128k Flash)
+maplemininewusb.menu.device_variant.STM32F103CB.build.cpu_flags=-DMCU_STM32F103CB
+maplemininewusb.menu.device_variant.STM32F103CB.build.ldscript=ld/jtag.ld
+maplemininewusb.menu.device_variant.STM32F103CB.upload.maximum_size=131072
+maplemininewusb.menu.device_variant.STM32F103CB.upload.ram.maximum_size=20480
+maplemininewusb.menu.device_variant.STM32F103CB.upload.flash.maximum_size=131072
+
+## STM32F103C8 -------------------------
+maplemininewusb.menu.device_variant.STM32F103C8=STM32F103C8 (20k RAM. 64k Flash)
+maplemininewusb.menu.device_variant.STM32F103C8.build.cpu_flags=-DMCU_STM32F103C8
+maplemininewusb.menu.device_variant.STM32F103C8.build.ldscript=ld/jtag_c8.ld
+maplemininewusb.menu.device_variant.STM32F103C8.upload.maximum_size=65536
+maplemininewusb.menu.device_variant.STM32F103C8.upload.ram.maximum_size=20480
+maplemininewusb.menu.device_variant.STM32F103C8.upload.flash.maximum_size=65536
+
+
+#---------------------------- UPLOAD METHODS ---------------------------
+
+maplemininewusb.menu.upload_method.DFUUploadMethod=STM32duino bootloader
+maplemininewusb.menu.upload_method.DFUUploadMethod.upload.protocol=Arduino_STM32:maple_dfu
+maplemininewusb.menu.upload_method.DFUUploadMethod.upload.tool=Arduino_STM32:maple_upload
+maplemininewusb.menu.upload_method.DFUUploadMethod.build.upload_flags=-DSERIAL_USB -DGENERIC_BOOTLOADER
+maplemininewusb.menu.upload_method.DFUUploadMethod.build.vect=VECT_TAB_ADDR=0x8002000
+maplemininewusb.menu.upload_method.DFUUploadMethod.build.ldscript=ld/bootloader_20.ld
+maplemininewusb.menu.upload_method.DFUUploadMethod.upload.usbID=1EAF:0003
+maplemininewusb.menu.upload_method.DFUUploadMethod.upload.altID=2
+
+maplemininewusb.menu.upload_method.serialMethod=Serial
+maplemininewusb.menu.upload_method.serialMethod.upload.protocol=Arduino_STM32:maple_serial
+maplemininewusb.menu.upload_method.serialMethod.upload.tool=Arduino_STM32:serial_upload
+
+
+maplemininewusb.menu.upload_method.STLinkMethod=STLink
+maplemininewusb.menu.upload_method.STLinkMethod.upload.protocol=Arduino_STM32:STLink
+maplemininewusb.menu.upload_method.STLinkMethod.upload.tool=Arduino_STM32:stlink_upload
+maplemininewusb.menu.upload_method.STLinkMethod.build.upload_flags=-DCONFIG_MAPLE_MINI_NO_DISABLE_DEBUG=1 -DSERIAL_USB -DGENERIC_BOOTLOADER
+
+maplemininewusb.menu.upload_method.BMPMethod=BMP (Black Magic Probe)
+maplemininewusb.menu.upload_method.BMPMethod.upload.protocol=Arduino_STM32:gdb_bmp
+maplemininewusb.menu.upload_method.BMPMethod.upload.tool=Arduino_STM32:bmp_upload
+maplemininewusb.menu.upload_method.BMPMethod.build.upload_flags=-DCONFIG_MAPLE_MINI_NO_DISABLE_DEBUG
