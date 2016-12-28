@@ -48,6 +48,7 @@ maplemininewusb.menu.upload_method.DFUUploadMethod.upload.altID=2
 maplemininewusb.menu.upload_method.serialMethod=Serial
 maplemininewusb.menu.upload_method.serialMethod.upload.protocol=Arduino_STM32:maple_serial
 maplemininewusb.menu.upload_method.serialMethod.upload.tool=Arduino_STM32:serial_upload
+maplemininewusb.menu.upload_method.serialMethod.build.upload_flags=-DSERIAL_USB
 
 
 maplemininewusb.menu.upload_method.STLinkMethod=STLink
